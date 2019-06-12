@@ -151,9 +151,58 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_connected_components.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_c_lexer.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_divide.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_dxt.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_easy_font.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_herringbone_wang_tile.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_image.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_image_resize.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_image_write.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_leakcheck.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_perlin.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_rect_pack.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_sprintf.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_textedit.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_tilemap_editor.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_truetype.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stb_voxel_render.h" />
+    <ClInclude Include="C:\Users\Toshka\Desktop\lib\stretchy_buffer.h" />
+    <ClInclude Include="lib\deprecated\rrsprintf.h" />
+    <ClInclude Include="lib\stb.h" />
+    <ClInclude Include="lib\stb_connected_components.h" />
+    <ClInclude Include="lib\stb_c_lexer.h" />
+    <ClInclude Include="lib\stb_divide.h" />
+    <ClInclude Include="lib\stb_dxt.h" />
+    <ClInclude Include="lib\stb_easy_font.h" />
+    <ClInclude Include="lib\stb_herringbone_wang_tile.h" />
+    <ClInclude Include="lib\stb_image.h" />
+    <ClInclude Include="lib\stb_image_resize.h" />
+    <ClInclude Include="lib\stb_image_write.h" />
+    <ClInclude Include="lib\stb_leakcheck.h" />
+    <ClInclude Include="lib\stb_perlin.h" />
+    <ClInclude Include="lib\stb_rect_pack.h" />
+    <ClInclude Include="lib\stb_sprintf.h" />
+    <ClInclude Include="lib\stb_textedit.h" />
+    <ClInclude Include="lib\stb_tilemap_editor.h" />
+    <ClInclude Include="lib\stb_truetype.h" />
+    <ClInclude Include="lib\stb_voxel_render.h" />
+    <ClInclude Include="lib\stretchy_buffer.h" />
+    <ClInclude Include="lib\tests\caveview\caveview.h" />
+    <ClInclude Include="lib\tests\caveview\cave_parse.h" />
+    <ClInclude Include="lib\tests\caveview\glext.h" />
+    <ClInclude Include="lib\tests\caveview\glext_list.h" />
+    <ClInclude Include="lib\tests\caveview\stb_gl.h" />
+    <ClInclude Include="lib\tests\caveview\stb_glprog.h" />
+    <ClInclude Include="lib\tests\oversample\stb_wingraph.h" />
+    <ClInclude Include="lib\tests\prerelease\stb_lib.h" />
+    <ClInclude Include="model.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="model.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
