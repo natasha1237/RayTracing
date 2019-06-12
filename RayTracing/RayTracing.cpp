@@ -21,6 +21,12 @@ float multVec3(vec3 vec_1, vec3 vec_2) {
 	return vec_1.x * vec_2.x + vec_1.y * vec_2.y + vec_1.z * vec_2.z;
 }
 
+struct Light {
+	Light(const vec3 &p, const float &i) : position(p), intensity(i) {}
+	vec3 position;
+	float intensity;
+};
+
 struct Material {
 	Material(const vec3 &color) : diffuse_color(color) {}
 	Material() : diffuse_color() {}
@@ -65,7 +71,7 @@ bool scene_intersect(const vec3 &orig, const vec3 &dir, const std::vector<Sphere
 	return spheres_dist < 1000;
 }
 
-vec3 cast_ray(const vec3 &orig, const vec3 &dir, const std::vector<Sphere> &spheres) {
+vec3 cast_ray(const vec3 &orig, const vec3 &dir, const std::vector<Sphere> &spheres, const std::vector<Light> &lights) {
 	vec3 point, N;
 	Material material;
 
@@ -73,10 +79,15 @@ vec3 cast_ray(const vec3 &orig, const vec3 &dir, const std::vector<Sphere> &sphe
 		return vec3(0.2, 0.7, 0.8); // background color
 	}
 
-	return material.diffuse_color;
+	float diffuse_light_intensity = 0;
+	for (size_t i = 0; i < lights.size(); i++) {
+		vec3 light_dir = normalize((lights[i].position - point));
+		diffuse_light_intensity += lights[i].intensity * std::fmaxf(0.f, multVec3(light_dir,N));
+	}
+	return material.diffuse_color * diffuse_light_intensity;
 }
 
-void render(const vector<Sphere> &spheres) {
+void render(const vector<Sphere> &spheres, const std::vector<Light> &lights) {
 	const int width = 1024;//ширина екрану (зображення)
 	const int height = 768;//висота екрану (зображення)    
 	const int fov  = PI /2.;
@@ -87,7 +98,7 @@ void render(const vector<Sphere> &spheres) {
 			float x = (2 * (i + 0.5) / (float)width - 1)*tan(fov / 2.)*width / (float)height;
 			float y = -(2 * (j + 0.5) / (float)height - 1)*tan(fov / 2.);
 			vec3 dir = normalize(vec3(x, y, -1));
-			framebuffer[i + j * width] = cast_ray(vec3(0, 0, 0), dir, spheres);
+			framebuffer[i + j * width] = cast_ray(vec3(0, 0, 0), dir, spheres, lights);
 		}
 	}
 
@@ -123,5 +134,8 @@ int main()
 	spheres.push_back(Sphere(vec3(1.5, -0.5, -18), 3, red_rubber));
 	spheres.push_back(Sphere(vec3(7, 5, -18), 4, ivory));
 
-	render(spheres);
+	vector<Light>  lights;
+	lights.push_back(Light(vec3(-20, 20, 20), 1.5));
+
+	render(spheres, lights);
 }
